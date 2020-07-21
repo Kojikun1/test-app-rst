@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css'
@@ -8,6 +8,8 @@ import backgroundImage from '../../assets/background.png'
 import AuthContext from '../../contexts/authContext';
 
 export default function Login(){
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
 
     const { signed, user, SignIn } = useContext(AuthContext);
 
@@ -33,11 +35,15 @@ export default function Login(){
                    className='input-text'
                    type='text'
                    placeholder="E-mail"
+                   onChange={(e)=> setEmail(e.target.value)}
+                   value={email}
                 />
                 <input
                     className='input-text'
-                    type='text'
+                    type='password'
                     placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                 />
                 <InputButton title="ENTRAR" handleSubmit={handleSignIn} />
                 <Link to='/' >Não possuo cadastro</Link>
