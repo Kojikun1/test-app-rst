@@ -1,0 +1,12 @@
+button {
+     width: 270px;
+     height: 52px;
+     background: #071AC8 0% 0% no-repeat padding-box;
+     box-shadow: 0px 3px 6px #FFFFFF29;
+     border-radius: 20px;
+     opacity: 1;
+     border: none;
+     font-size: 20px;
+     color: #fff;
+     margin: 20px 0
+}

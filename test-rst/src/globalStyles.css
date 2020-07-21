@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+    font-weight: 400;
+}
+@media only screen and (max-width: 1200px) {
+    .main img{
+       width: calc(100% - 403px );
+    }
+}
+@media only screen and (max-width: 600px) {
+    .main {
+        flex-direction: column;
+    }
+    .main img{
+       width: 403px;
+       height: calc(100vh - 769px);
+    }
+}

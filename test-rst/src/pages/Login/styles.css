@@ -1,0 +1,38 @@
+.side-content {
+    width: 403px;
+    height: 769px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form h2 {
+    color: #707070;
+    font-size: 20px;
+}
+.form a {
+    color: #000000;
+    font-size: 20px
+}
+.input-text {
+    width: 270px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 0 10px;
+}
+.background-image {
+    width: calc(1488px - 403px);
+    height: 769px;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+}
