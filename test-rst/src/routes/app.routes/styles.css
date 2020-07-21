@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-image: url('../../assets/bg.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100vh;
+}
+.top-side-header {
+    display: flex;
+    position: relative
+}
+.top-side-header h2, .top-side-header p {
+    color: #fff;
+}
+.top-side-header img {
+    margin-top: 25px;
+    margin-left: 35px;
+}
+.top-side-header #user-data {
+    margin-top: 25px;
+    margin-left: 25px;
+}
+#signout-button {
+    border: none;
+    background: none;
+    color: #fff;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 25px;
+    height: 20px; 
+}
+.side-container{
+    width: 422px;
+}
+.side-container ul {
+    margin-top: 82px;
+    margin-left: 34px;
+    list-style: none;
+}
+.side-container ul li{
+    margin-top: 40px;
+}
+.side-container ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}

@@ -5,7 +5,7 @@ export default function AuthService(){
                 token: "jfldakfjldkjafdd1f3ad21f3da2f13dafda",
                 user: {
                     name: "koji",
-                    emai: "fake_email@gmail.com"
+                    email: "fake_email@gmail.com"
                 }
             })
         },2000)

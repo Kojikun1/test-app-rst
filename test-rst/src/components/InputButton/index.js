@@ -4,7 +4,7 @@ import './styles.css'
 
 export default function InputButton({title, handleSubmit}){
     return (
-        <button type='submit' onClick={handleSubmit} >
+        <button className="custom-button" type='submit' onClick={handleSubmit} >
             {title}
         </button>
     )
