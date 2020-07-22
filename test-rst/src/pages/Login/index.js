@@ -1,17 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css'
 import InputButton from '../../components/InputButton';
 import backgroundImage from '../../assets/background.png'
 
-import AuthContext from '../../contexts/authContext';
+import { useAuth } from '../../contexts/authContext';
 
 export default function Login(){
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
-    const { signed, user, SignIn } = useContext(AuthContext);
+    const { signed, user, SignIn } = useAuth();
 
     console.log(signed, user);
 

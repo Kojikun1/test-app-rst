@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 import AuthService from '../services/auth'
 
@@ -39,4 +39,10 @@ export function AuthProvider({ children }){
     )
 }
 
-export default AuthContext;
+export function useAuth(){
+    return useContext(AuthContext);
+}
+
+
+
+

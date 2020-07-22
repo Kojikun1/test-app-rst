@@ -1,17 +1,17 @@
-import React, { useContext }  from 'react';
+import React from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
 import Dashboard from '../../pages/Dashboard';
 import Todo from '../../pages/Todo';
 
-import AuthContext from '../../contexts/authContext';
+import { useAuth } from '../../contexts/authContext'
 
 import './styles.css';
 import topImgIcon from '../../assets/logo-rstcom-ok-.png';
 
 export default function AppRoutes(){
         
-    const { SignOut, user } = useContext(AuthContext);
+    const { SignOut, user } = useAuth()
 
     function handleSignOut(){
          SignOut();

@@ -22,6 +22,7 @@ export default function Dashboard(){
             <h2>/Dados Pessoais</h2>
             <div className="photo-edit" >
                 <img src={photo} alt="edit-avatar" />
+                { /*eslint-disable-next-line */}
                 <a href='#' >alterar foto</a>
             </div>
             <form className='user-edit-input-container'>
