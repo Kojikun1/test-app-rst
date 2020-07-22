@@ -4,6 +4,12 @@
     background-color: #ddd;
     position: relative;
 }
+.todo-container h2{
+    font-size: 18px;
+    color: red;
+    margin-top: 32px;
+    margin-left: 10px;
+}
 .input-todo-box {
     position: absolute;
     bottom: 0;

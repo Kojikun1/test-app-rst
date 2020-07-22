@@ -17,6 +17,7 @@ export default function Todo(){
     }  
     return (
         <div className="todo-container" >
+            <h2>/Todo list</h2>
             <h3>Lista de Tarefas</h3>
             <ul className='todo-list' >
             {todos.map(item => (
