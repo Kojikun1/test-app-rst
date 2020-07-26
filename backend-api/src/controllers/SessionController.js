@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 class SessionController {
 
@@ -23,8 +24,12 @@ class SessionController {
            }
 
            user.password = undefined;
-           
-            return res.status(200).json(user);
+
+           const token = jwt.sign({userId: user._id},process.env.APP_SECRET,{
+            expiresIn: '7d'
+           });
+
+           return res.status(200).json({user, token});
 
       } catch (error) {
            console.log(error);

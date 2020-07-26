@@ -11,18 +11,13 @@ export default function Login(){
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
-    const { signed, user, SignIn } = useAuth();
-
-    console.log(signed, user);
+    const { SignIn } = useAuth();
 
     function handleSignIn(e){
         e.preventDefault();
+         console.log(email, password);
+        SignIn(email, password);
 
-        SignIn();
-
-        console.log(signed);
-
-        console.log(user);
     }
 
     return (
