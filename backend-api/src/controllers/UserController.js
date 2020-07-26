@@ -16,14 +16,14 @@ class UserController {
             let user = await User.findOne({ email });
 
             if(user){
-                return res.status(200).json({message: "User with this email already exist"});
+                return res.status(400).json({message: "User with this email already exist"});
             }
             
             user = await User.create({name, email, password});
 
             user.password = undefined;
 
-            return res.status(200).json(user);
+            return res.status(200).json({user, message: "Successful registered"});
 
       } catch (error) {
            console.log(error);

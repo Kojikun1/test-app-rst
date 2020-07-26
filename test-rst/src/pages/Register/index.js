@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-//import { useAuth } from '../../contexts/authContext';
+import api from '../../services/api';
 
 import './styles.css'
 import InputButton from '../../components/InputButton';
@@ -14,9 +14,35 @@ export default function Register(){
     const [password,setPassword] = useState('');
     const [password2,setPassword2] = useState('');
 
-    function handleRegister(e){
+    const history = useHistory();
+
+    async function handleRegister(e){
         e.preventDefault();
-        console.log(name, email, password, password2);
+        if(password === password2){
+            try {
+                const response = await api.post('/user/register',{
+                    name,
+                    email,
+                    password
+                });
+    
+                alert(`${response.data.message}`);
+                
+                history.push('/login');
+    
+                console.log(name, email, password, password2);
+                
+                console.log(response);
+    
+            }catch(error) {
+                if(error.response){
+                    alert(`${error.response.data.message}`);
+                    console.log(error.response);
+                }
+            }
+        }else{
+            alert("Password dont match");
+        }     
     }
 
     return (
