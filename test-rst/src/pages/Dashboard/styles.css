@@ -31,3 +31,13 @@
     width: 40px;
     align-self: center;
 }
+.photo-edit label {
+     text-decoration: underline;
+     cursor: pointer;
+     color: #757575;
+     font-size: 14px;
+     text-align: center;
+}
+#input-image {
+    display: none;
+}

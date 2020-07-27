@@ -33,7 +33,7 @@ export function AuthProvider({ children }){
              
             setUser(response.data.user);
 
-            //api.defaults.headers.authorization = `Bearer ${token}`;
+            api.defaults.headers.authorization = `Bearer ${response.data.token}`;
 
             localStorage.setItem("App:User",JSON.stringify(response.data.user));
             localStorage.setItem("App:Token",JSON.stringify(response.data.token));
@@ -41,8 +41,10 @@ export function AuthProvider({ children }){
         }catch(error){
             if(error.response){
                 console.log(error.response.status, error.response.data);
+                alert(`failure to login ${error.response.data.message}`);
+            }else{
+                alert("network error");
             }
-            alert(`failure to login ${error.response.data.message}`);
         }
     }
 
