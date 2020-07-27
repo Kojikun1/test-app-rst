@@ -9,16 +9,21 @@ const AuthContext = createContext({});
 export function AuthProvider({ children }){
     
     const [user,setUser] = useState(null);
+    const [avatar,setAvatar] = useState(null);
 
     useEffect(()=> {
         function LoadContent(){
            const user = JSON.parse(localStorage.getItem("App:User"));
-           const token = JSON.parse(localStorage.getItem("App:token"));
+           const token = JSON.parse(localStorage.getItem("App:Token"));
+           const avatar = JSON.parse(localStorage.getItem("App:Avatar"));
            
            if(user && token){
                setUser(user);
 
                api.defaults.headers.authorization = `Bearer ${token}`;
+           }
+           if(avatar){
+               setAvatar(avatar);
            }
         }
         LoadContent();
@@ -30,6 +35,11 @@ export function AuthProvider({ children }){
                 email,
                 password
             });
+
+            if(response.data.user.avatar_url){
+                setAvatar(response.data.user.avatar_url);
+                localStorage.setItem("App:Avatar",JSON.stringify(response.data.user.avatar_url));
+            }
              
             setUser(response.data.user);
 
@@ -50,11 +60,12 @@ export function AuthProvider({ children }){
 
     function SignOut(){
         setUser(null);
+        setAvatar(null);
         localStorage.clear();
     }
 
     return (
-        <AuthContext.Provider value={{ signed: !!user, user, SignIn, SignOut}} >
+        <AuthContext.Provider value={{ signed: !!user, user, SignIn, SignOut, avatar }} >
             {children}
         </AuthContext.Provider>
     )

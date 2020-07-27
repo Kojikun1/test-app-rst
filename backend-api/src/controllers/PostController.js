@@ -46,7 +46,7 @@ class PostController{
             {new: true}
         )
     
-        return res.status(200).json(updatedUser);
+        return res.status(200).json({updatedUser, message: "Successful Updated"});
 
 
        }catch(error){

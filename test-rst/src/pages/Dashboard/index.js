@@ -1,6 +1,8 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 
 import './styles.css'
+
+import { useAuth } from '../../contexts/authContext'; 
 
 import api from '../../services/api';
 
@@ -10,10 +12,20 @@ import photo from '../../assets/download.png';
 export default function Dashboard(){
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    const [password2,setPassword2] = useState('');
+    const [newpassword,setNewPassword] = useState('');
+    const [newpassword2,setNewPassword2] = useState('');
     const [avatarImage,setAvatarImage] = useState(null);
     const [avatarDisplay,setAvatarDisplay] = useState(null);
+
+    const { avatar, user } = useAuth();
+
+    useEffect(()=> {
+        setAvatarDisplay(avatar);
+        setName(user.name);
+        setEmail(user.email);
+        setNewPassword('');
+        setNewPassword2('');
+    },[])
 
     async function handleEdit(e){
         e.preventDefault();
@@ -29,6 +41,26 @@ export default function Dashboard(){
 
                 const response = await api.post('/posts', formData);
 
+                console.log(response.data);
+            }
+            if(newpassword){
+                if(newpassword === newpassword2){
+                    const response = await api.put('/user/update',{
+                        name,
+                        email,
+                        password: newpassword2
+                    })
+                    console.log(response);
+                    alert(`${response.data.message}`);
+                }else{
+                    alert("password dont match");
+                }
+            }else{
+                const response = await api.put('/user/update',{
+                    name,
+                    email,
+                })
+                alert(`${response.data.message}`)
                 console.log(response);
             }
             
@@ -67,7 +99,7 @@ export default function Dashboard(){
                     value={name}
                 />
                 <input
-                     className='input-text-edit'
+                     className='input-text-edit readOnly'
                      type='email'
                      placeholder="E-mail"
                      onChange={(e)=> setEmail(e.target.value)}
@@ -77,15 +109,17 @@ export default function Dashboard(){
                      className='input-text-edit'
                      type='password'
                      placeholder="Senha"
-                     onChange={(e)=> setPassword(e.target.value)}
-                     value={password}
+                     onChange={(e)=> setNewPassword(e.target.value)}
+                     value={newpassword}
+                     autoComplete="new-password"
                 />
                 <input 
                      className='input-text-edit'
                      type='password'
                      placeholder="Confirmar Senha"
-                     onChange={(e)=> setPassword2(e.target.value)}
-                     value={password2}
+                     onChange={(e)=> setNewPassword2(e.target.value)}
+                     value={newpassword2}
+                     autoComplete="new-password"
                 />
                 <InputButton title="Editar" handleSubmit={handleEdit} />
             </form>
