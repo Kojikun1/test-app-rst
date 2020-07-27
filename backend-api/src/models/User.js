@@ -17,7 +17,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         select: false
     },
-    avatar_url: String
+    avatar_url: String,
+    todo_list: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'Todo'}
+    ]
 })
 
 UserSchema.pre('save', async function() {
