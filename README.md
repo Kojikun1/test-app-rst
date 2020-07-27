@@ -11,11 +11,11 @@ com e com uma rota  privada para duas paginas de informaçoes e edição de info
 
 #### Como Rodar
 abra a pasta test-rst e rode o comando
+```text
+npm install
 
-> npm install
-
-> npm start
----
+npm start
+```
 
 ### API REST NODE
 
@@ -24,7 +24,22 @@ algumas outras bibliotecas
 
 #### Como Rodar
 abra a pasta backend-api e rode o comando
+```
+npm install
+```
 
-> npm install
+### Setar variveis de ambiente
 
-> npm run dev
+> Criear um arquivo .env na raiz da pasta backen-api
+
+```text
+APP_URL=url_do_servidor
+STORAGE_TYPE=local
+APP_SECRET=qualquer_valor
+MONGODB_URL=url_do_banco_de_dados
+```
+#### Rodar o Servidor
+
+```
+npm run dev
+```

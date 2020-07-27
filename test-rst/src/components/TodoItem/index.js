@@ -15,17 +15,17 @@ export default function TodoItem(props){
     return(
         <li className='todo-item' >
            <label className='checkbox-container' >
-           <p className='item-list-text' > {item.name}</p>
+           <p className='item-list-text' > {item.content}</p>
                <input
                     type='checkbox'
                     checked={item.completed}
-                    onChange={()=> handleCheck(item.id)}
+                    onChange={()=> handleCheck(item._id)}
                 />
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
            </label>
            <button
             className='remove-button' 
-            onClick={() => handleRemove(item.id)}
+            onClick={() => handleRemove(item._id)}
           >
           remover
         </button>
