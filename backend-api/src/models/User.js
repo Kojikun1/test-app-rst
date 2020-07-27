@@ -17,6 +17,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         select: false
     },
+    avatar_url: String
 })
 
 UserSchema.pre('save', async function() {
