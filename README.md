@@ -30,12 +30,12 @@ npm install
 
 ### Setar variveis de ambiente
 
-> Criear um arquivo .env na raiz da pasta backen-api
+> Criar um arquivo .env na raiz da pasta backend-api
 
 ```text
 APP_URL=url_do_servidor
 STORAGE_TYPE=local
-APP_SECRET=qualquer_valor
+APP_SECRET=qualquer_valor_chave_jwt
 MONGODB_URL=url_do_banco_de_dados
 ```
 #### Rodar o Servidor
